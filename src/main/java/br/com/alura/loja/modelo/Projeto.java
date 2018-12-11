@@ -1,7 +1,14 @@
 package br.com.alura.loja.modelo;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
 
+@XmlRootElement // informa que esse elemento é um elemento válido do XML do jaxB
+@XmlAccessorType(XmlAccessType.FIELD) // todos os campos serão serializados por padrão
 public class Projeto {
 	
 	private String nome;
@@ -33,5 +40,9 @@ public class Projeto {
 	
 	public String toXML() {
 		return new XStream().toXML(this);
+	}
+	
+	public String toJson() {
+        return new Gson().toJson(this);
 	}
 }

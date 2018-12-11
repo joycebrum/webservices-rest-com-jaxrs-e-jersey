@@ -1,6 +1,11 @@
 package br.com.alura.loja.modelo;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement // informa que esse elemento é um elemento válido do XML do jaxB
+@XmlAccessorType(XmlAccessType.FIELD) // todos os campos serão serializados por padrão
 public class Produto {
 
 	private double preco;
@@ -14,6 +19,8 @@ public class Produto {
 		this.preco = preco;
 		this.quantidade = quantidade;
 	}
+	
+	public Produto() {}
 
 	public double getPreco() {
 		return preco;
